@@ -1,0 +1,22 @@
+---
+title: "Interactive Map"
+author: "Manuel Mariscal"
+date: "22/3/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Links
+
+Please, click on the link to see the application:
+
+https://mmriscal.shinyapps.io/Assignment_week2/
+
+The code is available in my GitHub
+
+https://github.com/mmriscal/interactive_map
+
+

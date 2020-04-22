@@ -1,0 +1,45 @@
+---
+title: "Wavelenght"
+author: "Manuel Mariscal"
+date: "15/3/2020"
+output: ioslides_presentation
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Wave
+
+```{r enter_data, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(shiny)
+library(plotly)
+
+sliderInput("freq", label = "Frequency (Hz):",
+              min = 1, max = 9, value = 3, step = 1)
+
+sliderInput("lambda", label = "Wavelength (m):",
+              min = 0.1, max = 2, value = 0.2, step = 0.1)
+
+```
+
+  
+```{r plot_wave, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+renderPlotly({
+  
+  lambda <- as.numeric(input$lambda)
+  freq <- as.numeric(input$freq)
+
+  v <- freq*lambda
+  x <- seq(1, 10*(1/freq), by=0.01) 
+  t <- 1:length(x)
+  
+  plot_ly(x = x, y = sin(x + v*t), mode = "lines")
+  
+  })
+
+```
+
+
